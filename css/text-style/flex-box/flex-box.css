@@ -1,19 +1,51 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 body {
-    background-color: #020202;
+    background-color: hwb(0 100% 0%);
     margin: 0;
     padding: 0;
 }
 
+.old-price {
+    text-decoration: line-through;
+    color: #b6b6b6;
+}
+
+.new-price {
+    color: black;
+    font-weight: bold;
+}
+
 .menu {
-    background-color: white;
+    background-color: yellow;
     width: 1440px;
     margin: 0 auto 0 auto;
     padding: 16px 26px 16px 26px;
+    box-sizing: border-box;
+    border: solid 3px orange;
+    border-top: none;
+
+
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.menu .menu-left {
     display: flex;
     gap: 50px;
     align-items: center;
 }
 
+.menu .menu-right {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
 .menu nav {
     display: flex;
     gap: 26px;
@@ -47,4 +79,206 @@ body {
 
 .menu .logo {
     cursor: pointer;
+}
+
+main {
+    width: 1440px;
+    margin: 20px auto 0 auto;
+}
+
+main .most-viewd .cards-most-viewd {
+    display:flex;
+    gap:20px;
+    margin: 10px 0 0 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+main .most-viewd .cards-most-viewd .product-card {
+    width: 200px;
+}
+
+main .most-viewd .cards-most-viewd .product-card .product-img img {
+    width: 100%;
+    padding: 20px;
+}
+
+main .most-viewd .cards-most-viewd .product-card .product-brand {
+    margin: 15px 0 0 0;
+    font-weight: bold;
+}
+
+main .most-viewd .cards-most-viewd .product-card .product-name {
+    color: #b6b6b6;
+}
+
+.ad-cupons {
+    display: flex;
+    width: 1200px;
+    margin: 20px auto 0;
+    justify-content: space-between;
+    border: solid 4px black;
+    border-radius: 10px;
+    background-color: #f5eeee;
+}
+
+.ad-cupons .ad-cupons-left {
+    padding: 30px;
+    width: 50%;
+}
+
+.ad-cupons .ad-cupons-left h3 {
+    font-size: 30px;
+}
+
+.ad-cupons .ad-cupons-left .ad-cupons-text {
+    font-size: 30px;
+}
+
+.ad-cupons .ad-cupons-right {
+    padding: 30px;
+    background-color: black;
+    width: 50%;
+}
+
+.ad-cupons .ad-cupons-right p {
+    color: white;
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+.ad-cupons .ad-cupons-right .cupon-code {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.ad-cupons .ad-cupons-right .cupon-code .code {
+    background-color: transparent;
+    color: white;
+    border: dashed 1px white;
+    padding: 10px 15px;
+    border-radius: 30px;
+}
+
+.ad-cupons .ad-cupons-right .cupon-code .copy {
+    background-color: transparent;
+    color: white;
+    border: solid 1px white;
+    padding: 10px 15px;
+    border-radius: 30px;
+    min-width: 160px;
+    cursor: pointer;
+}
+
+
+.footer {
+    width: 1440px;
+    margin: 40px auto 0 auto;
+    background-color: #111;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 50px;
+}
+
+.footer-column {
+    flex: 1;
+}
+
+
+.footer-logo {
+    width: 180px;
+    background-color: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.footer-column h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+
+
+.footer-column p {
+    color: #cfcfcf;
+    line-height: 1.8;
+}
+
+
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #cfcfcf;
+    transition: .3s;
+}
+
+.footer-column ul li a:hover {
+    color: yellow;
+}
+
+
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.footer-social img {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.footer-social img:hover {
+    transform: scale(1.1);
+}
+
+
+
+.footer-button {
+    background-color: yellow;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.footer-button:hover {
+    background-color: #ffd700;
+}
+
+
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding: 20px;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
 }
