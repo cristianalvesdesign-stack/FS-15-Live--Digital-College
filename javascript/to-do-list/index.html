@@ -23,6 +23,7 @@
             <thead>
                 <tr>
                     <th scope="col">Tarefa</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
@@ -30,6 +31,25 @@
 
             </tbody>
         </table>
+
+        <div class="modal fade" id="taskDoneModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="taskDoneModal">Concluir atividade</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja concluir a atividade?</p>
+        <h4 id="taskDoneModalContent"></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnTaskDoneConfirm">Concluir</button>
+      </div>
+    </div>
+  </div>
+ </div>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
