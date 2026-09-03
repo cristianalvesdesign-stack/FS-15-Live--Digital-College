@@ -1,5 +1,6 @@
 const btnAddTask = document.getElementById("btn-add-task")
 const tBody = document.getElementById("list-task")
+const btnTaskDoneConfirm = document.getElementById("btnTaskDoneConfirm")
 const tasks = []
 
 function deleteTask(index) {
@@ -16,6 +17,7 @@ function deleteTask(index) {
 
         const tr = document.createElement("tr")
         const taskTd = document.createElement("td")
+        const tdStatusTask = document.createElement("td")
         const actionsTd = document.createElement("td")
 
         actionsTd.classList.add(
@@ -33,6 +35,9 @@ function deleteTask(index) {
         )
 
         const btnDone = document.createElement("button")
+          btnDone.addEventListener("click", function () {
+            doneTask(tasks[i], i)
+        })
         btnDone.innerHTML = "Concluir"
         btnDone.classList.add(
             "btn",
@@ -58,13 +63,41 @@ function deleteTask(index) {
         actionsTd.appendChild(btnDone)
         actionsTd.appendChild(btnReject)
 
-        taskTd.innerHTML = `${tasks[i]}`
+        taskTd.innerHTML = `${tasks[i].title}`
+        if (tasks[i].status === "doing") {
+            tdStatusTask.innerHTML = 'Em andamento'
+        }
+
+        if (tasks[i].status === "done") {
+            tdStatusTask.innerHTML = 'Conclída'
+        }
 
         tr.appendChild(taskTd)
+        tr.appendChild(tdStatusTask)
         tr.appendChild(actionsTd)
 
         tBody.appendChild(tr)
     }
+}
+
+function doneConfirm(taskIndex) {
+    console.log(taskIndex)
+
+}
+
+
+function doneTask(task, taskIndex) {
+    const taskTitle = document.getElementById("taskDoneModalContent")
+    const doneModal = document.getElementById("taskDoneModal")
+    taskTitle.innerHTML = task.title
+    const modal = new bootstrap.Modal(doneModal)
+    modal.show()
+    console.log("Atividade: ", task)
+    console.log("Index da atividade", taskIndex)
+
+    btnTaskDoneConfirm.addEventListener("click", function () {
+    doneConfirm(taskIndex)
+})
 }
 
 const tasksLocalStorage = JSON.parse(localStorage.getItem("tasks"))
@@ -79,6 +112,8 @@ if (tasksLocalStorage && tasksLocalStorage.length > 0) {
 
         const tr = document.createElement("tr")
         const tdTask = document.createElement("td")
+        const tdStatusTask = document.createElement("td")
+
         const actionsTd = document.createElement("td")
 
         actionsTd.classList.add(
@@ -92,10 +127,14 @@ if (tasksLocalStorage && tasksLocalStorage.length > 0) {
         btnEdit.classList.add(
             "btn",
             "btn-info",
-            "btn-sm"
-        )
+            "btn-sm")
+
+
 
         const btnDone = document.createElement("button")
+        btnDone.addEventListener("click", function () {
+            doneTask(tasksLocalStorage[i], i)
+        })
         btnDone.innerHTML = "Concluir"
         btnDone.classList.add(
             "btn",
@@ -121,9 +160,21 @@ if (tasksLocalStorage && tasksLocalStorage.length > 0) {
         actionsTd.appendChild(btnDone)
         actionsTd.appendChild(btnReject)
 
-        tdTask.innerHTML = `${tasksLocalStorage[i]}`
+        tdTask.innerHTML = `${tasksLocalStorage[i].title}`
+
+        if (tasksLocalStorage[i].status === "doing") {
+            tdStatusTask.innerHTML = 'Em andamento'
+        }
+
+         if (tasksLocalStorage[i].status === "done") {
+            tdStatusTask.innerHTML = 'Concluída'
+        }
+
+
+        tdStatusTask.innerHTML = `${tasksLocalStorage[i].status}`
 
         tr.appendChild(tdTask)
+        tr.appendChild(tdStatusTask)
         tr.appendChild(actionsTd)
 
         tBody.appendChild(tr)
@@ -140,6 +191,7 @@ btnAddTask.addEventListener("click", function () {
 
     const tr = document.createElement("tr")
     const taskTd = document.createElement("td")
+    const tdStatusTask = document.createElement("td")
     const actionsTd = document.createElement("td")
 
     actionsTd.classList.add(
@@ -177,8 +229,18 @@ btnAddTask.addEventListener("click", function () {
     actionsTd.appendChild(btnReject)
 
     taskTd.innerHTML = inputTask.value
+    tdStatusTask.innerHTML = 'Em andamento'
+        
 
-    const index = tasks.push(inputTask.value)
+    const task = {
+        title: inputTask.value,
+        status: "doing"
+    }
+    const index = tasks.push(task)
+
+      btnDone.addEventListener("click", function () {
+            doneTask(inputTask.value, index -1)
+        })
 
     btnReject.addEventListener("click", function () {
         deleteTask(index - 1)
@@ -190,6 +252,7 @@ btnAddTask.addEventListener("click", function () {
     )
 
     tr.appendChild(taskTd)
+    tr.appendChild(tdStatusTask)
     tr.appendChild(actionsTd)
 
     tBody.appendChild(tr)
