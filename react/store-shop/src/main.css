@@ -2,15 +2,21 @@
 @import 'tailwindcss-primeui';
 
 @font-face {
+   font-family: 'Satoshi';
+   src: url('./assets/fonts/satoshi/Satoshi-Regular.otf');
+
+}
+
+@font-face {
     font-family: 'IntegralCF';
-    src: url('./assets/fonts/fonts/Integral\ CF\ Heavy\ Oblique.ttf');
+    src: url('./assets/fonts/integral-cf/integral-cf-regular.ttf');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'IntegralCF';
-    src: url('./assets/fonts/fonts/Integral\ CF\ Heavy\ Oblique.ttf');
+    src: url('./assets/fonts/integral-cf/integral-cf-heavy.ttf');
     font-weight: 800;
     font-style: normal;
 }
@@ -29,9 +35,12 @@ body {
 
 
     --ss-default-font-size: 16px;
+
+
+    --background-gray: var(--ss-gray)
 }
 
-h1, h2, h3, h4, h5. h6 {
+h1, h2, h3, h4, h5, h6 {
     color: var(--ss-black);
     font-family: 'IntegralCF';
     font-weight: 800;
@@ -40,5 +49,15 @@ h1, h2, h3, h4, h5. h6 {
 p {
     color: var(--ss-black-60);
     font-size: var(--ss-default-font-size);
+    font-family: 'Satoshi';
 }
 
+ul li {
+    color: var(--ss-black-60);
+    font-size: var(--ss-default-font-size);
+    font-family: 'Satoshi';
+}
+
+.ss-bg-gray {
+    background-color: var(--ss-gray);
+}
